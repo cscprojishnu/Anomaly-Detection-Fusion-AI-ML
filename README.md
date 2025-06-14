@@ -33,13 +33,9 @@ These techniques are fused using a weighted strategy to improve detection accura
 - Trained on the reconstruction errors from the LSTM
 
 ### Fusion Strategy
-- Final anomaly score:
-  \[
-  S_f(x) = \alpha \cdot S_{LSTM}(x) + \beta \cdot S_{IF}(x)
-  \]
-  where \(\alpha + \beta = 1\)
-
+- Final anomaly score: **S_f(x) = α × S_LSTM(x) + β × S_IF(x)** where (α + β = 1)
 - Classification is done using a **95th percentile threshold** on the final anomaly score
+
 
 ---
 
