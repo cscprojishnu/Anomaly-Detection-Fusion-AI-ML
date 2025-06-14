@@ -19,5 +19,54 @@ These techniques are fused using a weighted strategy to improve detection accura
 
 ---
 
-## 📁 Folder Structure
 
+---
+
+## 🧪 Methodology
+
+### LSTM Autoencoder
+- Captures **temporal patterns** from sequential PMU data
+- Uses **reconstruction error** to detect deviations from normal behavior
+
+### Isolation Forest (IF)
+- Identifies **statistical outliers** based on recursive partitioning
+- Trained on the reconstruction errors from the LSTM
+
+### Fusion Strategy
+- Final anomaly score:
+  \[
+  S_f(x) = \alpha \cdot S_{LSTM}(x) + \beta \cdot S_{IF}(x)
+  \]
+  where \(\alpha + \beta = 1\)
+
+- Classification is done using a **95th percentile threshold** on the final anomaly score
+
+---
+
+## 📊 Evaluation
+
+Metrics used:
+- **Precision:** 88.21%
+- **Recall:** 88.29%
+- **F1 Score:** 88.25%
+
+Compared against state-of-the-art techniques like CyResGrid and GC-LSTM+ResNet.
+
+---
+
+## 📚 Dataset
+
+Used the publicly available dataset:  
+**Realistic Labelled PMU Data for Cyber-Power Anomaly Detection Using Real-Time Synchrophasor Testbed**  
+Available on IEEE DataPort
+
+---
+
+## 🧩 Future Enhancements
+
+- Adaptive thresholding using Bayesian Optimization or RL
+- Self-supervised models using contrastive learning
+- Federated learning for decentralized anomaly detection
+- Integration of Explainable AI (XAI) for model interpretability
+
+---
